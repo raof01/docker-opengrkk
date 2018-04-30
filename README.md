@@ -12,8 +12,8 @@
 
 ```bash
 docker run -d \
-    -v /path/to/source:/src \
-    -v /path/to/data:/data \
+    -v /path/to/source:/src:delegated \
+    -v /path/to/data:/data:delegated \
     -p 8888:8080 \
     docker-opengrok
 ```
