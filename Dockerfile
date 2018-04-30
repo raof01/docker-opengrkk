@@ -2,8 +2,8 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y wget git
 #dh-autoreconf pkg-config unzip
 
-COPY jdk.tar.gz /tmp/jdk.tar.gz
-RUN mkdir /usr/java && tar xvfz /tmp/jdk.tar.gz -C /usr/java --strip-components=1
+COPY jre.tar.gz /tmp/jre.tar.gz
+RUN mkdir /usr/java && tar xvfz /tmp/jre.tar.gz -C /usr/java --strip-components=1
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 0
 
 RUN wget "http://download.nextag.com/apache/tomcat/tomcat-9/v9.0.7/bin/apache-tomcat-9.0.7.tar.gz" -O /tmp/apache-tomcat.tar.gz
@@ -33,7 +33,7 @@ ENV CLASSPATH /opt/tomcat/bin/bootstrap.jar:/opt/tomcat/bin/tomcat-juli.jar
 #RUN ./autogen.sh && ./configure --program-transform-name='s/ctags/my_ctags/; s/etags/myemacs_tags/'
 #RUN make && make install && rm -fr /usr/bin/ctags && ln -s /usr/local/bin/my_ctags /usr/bin/ctags
 ADD ctags /usr/bin/ctags
-RUN wget "https://github.com/oracle/opengrok/releases/download/1.1-rc25/opengrok-1.1-rc25.tar.gz" -O /tmp/opengrok.tar.gz
+RUN wget "https://github.com/oracle/opengrok/releases/download/1.1-rc22/opengrok-1.1-rc22.tar.gz" -O /tmp/opengrok.tar.gz
 RUN mkdir /opt/opengrok && tar xvfz /tmp/opengrok.tar.gz -C /opt/opengrok --strip-components=1
 
 RUN mkdir -p /src /data /var/opengrok
