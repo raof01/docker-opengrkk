@@ -38,7 +38,7 @@ RUN mkdir /opt/opengrok && tar xvfz /tmp/opengrok.tar.gz -C /opt/opengrok --stri
 
 RUN mkdir -p /src /data /var/opengrok
 RUN ln -s /src /var/opengrok/src
-RUN ln -s /src /var/opengrok/data
+RUN ln -s /data /var/opengrok/data
 
 WORKDIR $CATALINA_HOME
 RUN /opt/opengrok/bin/OpenGrok deploy

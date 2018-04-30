@@ -7,3 +7,18 @@
 4. Opengrok: https://github.com/oracle/opengrok/releases/download/1.1-rc25/opengrok-1.1-rc25.tar.gz
 
 > NOTE: if all the dependencies are download manually, Dockerfile needs to be modified.
+
+# RUN
+
+```bash
+docker run -d \
+    -v /path/to/source:/src \
+    -v /path/to/data:/data \
+    -p 8888:8080 \
+    docker-opengrok
+```
+
+```bash
+docker exec <CONTAINER_NAME> bash -c "/opt/opengrok/bin/OpenGrok index"
+```
+
