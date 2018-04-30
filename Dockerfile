@@ -49,4 +49,5 @@ RUN /opt/opengrok/bin/OpenGrok deploy
 RUN rm -fr /tmp/*
 
 EXPOSE 8080
+ADD index.sh /index.sh
 CMD ["catalina.sh", "run"]
